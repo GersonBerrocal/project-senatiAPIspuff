@@ -8,6 +8,7 @@ const { spotifyRouter } = require('./routes/spotify')
 app.use(express.json())
 app.use(cookieParser())
 
+app.use(express.static('build'))
 spotifyRouter(app)
 
 app.listen(PORT, () => {
