@@ -73,7 +73,7 @@ const spotifyRouter = app => {
         const response = await axios(options_axios_access)
         const { access_token, refresh_token } = response.data
         res.redirect(
-          '/' +
+          '/?' +
             new URLSearchParams({
               access_token,
               refresh_token
