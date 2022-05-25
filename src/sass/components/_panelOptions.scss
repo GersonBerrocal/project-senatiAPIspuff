@@ -1,0 +1,10 @@
+.panelOptions {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(236, 236, 236);
+  min-width: 200px;
+  a {
+    padding: map-get($padding-sizes, 'medium') map-get($padding-sizes, 'heavy');
+  }
+}

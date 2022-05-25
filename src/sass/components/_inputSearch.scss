@@ -1,0 +1,19 @@
+.inputSearch {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  border: 1px solid rgb(26, 26, 26);
+  padding: map-get($padding-sizes, 'small');
+  font-size: 1rem;
+  width: 450px;
+  &-iconSearch,
+  &-iconClose {
+    width: 22px;
+    cursor: pointer;
+    margin-right: 0.4em;
+  }
+  &-input {
+    width: 100%;
+    border: none;
+  }
+}

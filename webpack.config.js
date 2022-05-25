@@ -11,7 +11,10 @@ module.exports = {
     clean: true
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@media': path.resolve(__dirname, 'src/assets/media/')
+    }
   },
   module: {
     rules: [
@@ -27,10 +30,17 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(jpg|jpeg|png)$/,
+        test: /\.(jpg|jpeg|png|svg)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'media/[hash][media][query]'
+          filename: 'media/[hash][ext]'
+        }
+      },
+      {
+        test: /\.(ttf|woff)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name][ext]'
         }
       }
     ]

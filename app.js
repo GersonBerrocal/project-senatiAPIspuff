@@ -1,5 +1,4 @@
 const express = require('express')
-const axios = require('axios')
 const cookieParser = require('cookie-parser')
 const app = express()
 const { PORT } = require('dotenv').config().parsed
