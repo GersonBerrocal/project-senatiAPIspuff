@@ -1,0 +1,40 @@
+.slider {
+  overflow: hidden;
+  // border: 1px solid blue;
+  position: relative;
+  // padding: 0 1.2em;
+  z-index: 10;
+  &-container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    transition: transform 0.4s ease-out;
+    gap: 20px;
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+  &-next,
+  &-previous {
+    width: 34px;
+    padding: 0.4em;
+    display: block;
+    background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+  &-previous {
+    transform: rotate(180deg);
+    left: 0;
+  }
+  &-next {
+    right: 0;
+  }
+}

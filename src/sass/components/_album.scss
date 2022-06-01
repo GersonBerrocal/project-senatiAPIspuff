@@ -1,0 +1,32 @@
+.album {
+  border: 1px solid rgb(210, 210, 210);
+  width: var(--width-album);
+  display: block;
+  padding: 0.8em;
+  &-img {
+    display: block;
+    width: 100%;
+  }
+  &-type {
+    font-size: 0.9em;
+    color: rgb(61, 61, 61);
+  }
+  &-name {
+    font-weight: 500;
+  }
+  &-artists {
+    width: 100%;
+    a {
+      display: inline-block;
+      margin-right: 8px;
+      color: rgb(61, 61, 61);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &::after {
+        content: ', ';
+      }
+    }
+  }
+}

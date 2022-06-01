@@ -6,5 +6,6 @@
   min-width: 200px;
   a {
     padding: map-get($padding-sizes, 'medium') map-get($padding-sizes, 'heavy');
+    cursor: pointer;
   }
 }

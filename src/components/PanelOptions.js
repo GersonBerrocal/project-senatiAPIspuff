@@ -7,11 +7,20 @@ function PanelOptions() {
     panelOptions: { options, event }
   } = React.useContext(appContext)
   const keyOptions = Object.keys(options)
-  let list = keyOptions.map(key => (
-    <a href={options[key]} key={key}>
-      {key}
-    </a>
-  ))
+  let list = keyOptions.map(key => {
+    if (options[key].url)
+      return (
+        <a href={options[key].url} key={key}>
+          {key}
+        </a>
+      )
+    else
+      return (
+        <a key={key} onClick={options[key].cb}>
+          {key}
+        </a>
+      )
+  })
   const left = event.pageX
   const top = event.pageY
   const right = window.innerWidth - left

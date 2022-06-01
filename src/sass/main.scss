@@ -1,9 +1,19 @@
 @import 'base/fonts';
 @import 'base/reset';
 @import 'base/sizes';
+@import 'base/var';
 
 // layout
 @import 'layout/navbar';
+@import 'layout/section';
 
 @import 'components/inputSearch';
 @import 'components/panelOptions';
+@import 'components/album';
+@import 'components/tooltip';
+@import 'components/slider';
+@import 'components/playlist';
+
+@import 'pages/locked';
+@import 'pages/watch';
+@import 'pages/artist';

@@ -3,12 +3,14 @@ import logo from '@media/Trackly.svg'
 import iconUser from '@media/user.svg'
 import iconSearch from '@media/search.svg'
 import iconClose from '@media/close.svg'
+import { redirectQueryUrl } from '../components/utils/redirectUrl'
 
 import { appContext } from './context/'
 
 function Navbar() {
   const [textSearch, setTextSearch] = React.useState('')
-  const { setPanelOptions } = React.useContext(appContext)
+  const { setPanelOptions, setToken, setRefreshToken } =
+    React.useContext(appContext)
 
   const onClickClose = () => {
     setTextSearch('')
@@ -17,7 +19,17 @@ function Navbar() {
     setTextSearch(e.target.value)
   }
   const clickUserIcon = e => {
-    setPanelOptions({ options: { login: '/api/spotify/login' }, event: e })
+    const clikme = () => {
+      setToken('')
+      setRefreshToken('')
+      redirectQueryUrl({ page: 'home' })
+    }
+    setPanelOptions({
+      options: {
+        exit: { cb: clikme }
+      },
+      event: e
+    })
   }
   return (
     <div className="navbar">

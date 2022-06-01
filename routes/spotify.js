@@ -1,5 +1,6 @@
 const axios = require('axios')
 const express = require('express')
+const res = require('express/lib/response')
 const {
   SPOTIFY_CLIENT_ID: ID,
   SPOTIFY_CLIENT_SECRET: SECRET,
@@ -45,7 +46,7 @@ const spotifyRouter = app => {
     const storedState = req.cookies ? req.cookies[stateKey] : null
     if (state === null || state !== storedState) {
       res.redirect(
-        '/error/spotify/' +
+        '?page=error&' +
           new URLSearchParams({
             error: 'state_mismatch'
           }).toString()
@@ -101,6 +102,28 @@ const spotifyRouter = app => {
       // console.log(res2)
     }
   })
-}
 
+  router.get('/refresh', async (req, res) => {
+    const refresh_token = req.query.refresh_token
+    const optionsAxios = {
+      method: 'POST',
+      url: 'https://accounts.spotify.com/api/token',
+      data: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refresh_token
+      }),
+      headers: {
+        Authorization:
+          'Basic ' + Buffer.from(`${ID}:${SECRET}`).toString('base64'),
+        Accept: 'application/json'
+      }
+    }
+    try {
+      const resAxios = await axios(optionsAxios)
+      res.json({ access_token: resAxios.data.access_token })
+    } catch (err) {
+      res.status(401).send(err)
+    }
+  })
+}
 module.exports = { spotifyRouter }

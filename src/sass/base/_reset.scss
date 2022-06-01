@@ -14,3 +14,17 @@ input {
   outline: none;
   padding: 0.3em;
 }
+
+a {
+  color: inherit;
+}
+
+.is-hidden {
+  display: none !important;
+}
+.link {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}

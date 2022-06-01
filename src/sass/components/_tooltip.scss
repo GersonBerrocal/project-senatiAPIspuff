@@ -1,0 +1,19 @@
+.tooltip {
+  position: relative;
+  &-text {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  span:not(.tooltip-text) {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    padding: 0.4em;
+    border: 1px solid rgb(186, 186, 186);
+    background-color: white;
+  }
+}
