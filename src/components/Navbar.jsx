@@ -9,7 +9,7 @@ import { appContext } from './context/'
 
 function Navbar() {
   const [textSearch, setTextSearch] = React.useState('')
-  const { setPanelOptions, setToken, setRefreshToken } =
+  const { setPanelOptions, setToken, setRefreshToken, spotify } =
     React.useContext(appContext)
 
   const onClickClose = () => {
@@ -17,6 +17,9 @@ function Navbar() {
   }
   const onChangeInput = e => {
     setTextSearch(e.target.value)
+    spotify.searchTrack(e.target.value).then(res => {
+      console.log(res)
+    })
   }
   const clickUserIcon = e => {
     const clikme = () => {

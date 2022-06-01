@@ -72,6 +72,14 @@ class Spotify {
     })
     return res.json()
   }
+
+  async searchTrack(query) {
+    const res = await fetch(`${this.base}/search?q=${query}&type=track`, {
+      method: 'GET',
+      headers: this.headers
+    })
+    return res.json()
+  }
 }
 
 export { Spotify }

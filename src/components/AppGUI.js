@@ -45,6 +45,8 @@ function AppGUI() {
     })()
   }, [])
 
+  // PROBAR
+
   return (
     <div className="AppContainer" onClick={clickApp}>
       {logged ? <Home /> : <Locked status={statusSpotify} />}
